@@ -6,75 +6,81 @@ if (year) {
 }
 
 if (demo) {
+  const frame = demo.querySelector(".transform-frame");
   const range = demo.querySelector(".demo-range");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let interacting = false;
-  let resumeAt = 0;
-  let frameId;
+  let inView = true;
+  let resumeTimer;
 
-  const setReveal = (value) => {
-    demo.style.setProperty("--reveal", `${value}%`);
-    range.value = String(Math.round(value));
+  const clamp = (value) => Math.min(96, Math.max(4, value));
+
+  const setSplit = (value) => {
+    const split = clamp(value);
+    const readyVisible = Math.round(100 - split);
+
+    frame.style.setProperty("--split", `${split}%`);
+    range.value = String(Math.round(split));
     range.setAttribute(
       "aria-valuetext",
-      `${Math.round(value)}% of the ready-to-post result visible`,
+      `${readyVisible}% of the ready-to-post result visible`,
     );
   };
 
-  const animate = (time) => {
-    if (!reducedMotion.matches && !interacting && time > resumeAt) {
-      const cycle = (time % 9000) / 9000;
-      let value;
+  const currentSplit = () => {
+    const computed = Number.parseFloat(getComputedStyle(frame).getPropertyValue("--split"));
+    return Number.isFinite(computed) ? computed : Number(range.value);
+  };
 
-      if (cycle < 0.38) {
-        const progress = cycle / 0.38;
-        value = 8 + 84 * (1 - Math.pow(1 - progress, 3));
-      } else if (cycle < 0.58) {
-        value = 92;
-      } else if (cycle < 0.96) {
-        const progress = (cycle - 0.58) / 0.38;
-        value = 92 - 84 * (1 - Math.pow(1 - progress, 3));
-      } else {
-        value = 8;
-      }
+  const updateAutoplay = () => {
+    const canPlay = !reducedMotion.matches && !interacting && inView && !document.hidden;
 
-      setReveal(value);
+    demo.classList.toggle("is-auto-playing", canPlay);
+
+    if (canPlay) {
+      frame.style.removeProperty("--split");
+    } else if (reducedMotion.matches || !inView) {
+      setSplit(50);
     }
-
-    frameId = window.requestAnimationFrame(animate);
   };
 
   const pauseForInteraction = () => {
+    window.clearTimeout(resumeTimer);
+    const split = currentSplit();
     interacting = true;
-    window.cancelAnimationFrame(frameId);
+    demo.classList.remove("is-auto-playing");
+    setSplit(split);
   };
 
   const resumeLater = () => {
-    interacting = false;
-    resumeAt = performance.now() + 4500;
-    frameId = window.requestAnimationFrame(animate);
+    window.clearTimeout(resumeTimer);
+    resumeTimer = window.setTimeout(() => {
+      interacting = false;
+      updateAutoplay();
+    }, 4500);
   };
 
-  range.addEventListener("input", () => setReveal(Number(range.value)));
+  range.addEventListener("input", () => setSplit(Number(range.value)));
   range.addEventListener("pointerdown", pauseForInteraction);
   range.addEventListener("pointerup", resumeLater);
   range.addEventListener("pointercancel", resumeLater);
   range.addEventListener("focus", pauseForInteraction);
   range.addEventListener("blur", resumeLater);
-  range.addEventListener("keydown", () => setReveal(Number(range.value)));
 
-  reducedMotion.addEventListener("change", () => {
-    if (reducedMotion.matches) {
-      window.cancelAnimationFrame(frameId);
-      setReveal(50);
-    } else {
-      frameId = window.requestAnimationFrame(animate);
-    }
-  });
+  reducedMotion.addEventListener("change", updateAutoplay);
+  document.addEventListener("visibilitychange", updateAutoplay);
 
-  if (reducedMotion.matches) {
-    setReveal(50);
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        inView = entry.isIntersecting;
+        updateAutoplay();
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(demo);
   } else {
-    frameId = window.requestAnimationFrame(animate);
+    updateAutoplay();
   }
 }

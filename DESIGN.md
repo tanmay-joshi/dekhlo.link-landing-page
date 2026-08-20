@@ -10,9 +10,9 @@ colors:
 typography:
   display:
     fontFamily: "Fraunces, Georgia, serif"
-    fontSize: "clamp(3.2rem, 14.2vw, 5.9rem)"
+    fontSize: "clamp(3.05rem, 12.7vw, 5rem)"
     fontWeight: 700
-    lineHeight: 0.96
+    lineHeight: 0.98
     letterSpacing: "-0.035em"
   headline:
     fontFamily: "Fraunces, Georgia, serif"
@@ -64,27 +64,17 @@ components:
     padding: "9px 14px"
     height: "44px"
   header-chat-hover:
-    backgroundColor: "{colors.lilac}"
+    backgroundColor: "color-mix(in srgb, {colors.mint} 78%, {colors.paper})"
     textColor: "{colors.ink}"
   button-primary:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-    typography: "{typography.label}"
-    rounded: "{rounded.full}"
-    padding: "14px 20px"
-    height: "56px"
-  button-primary-hover:
-    backgroundColor: "{colors.lilac}"
-    textColor: "{colors.ink}"
-  button-light:
     backgroundColor: "{colors.mint}"
     textColor: "{colors.ink}"
     typography: "{typography.label}"
     rounded: "{rounded.full}"
-    padding: "14px 20px"
+    padding: "14px 24px"
     height: "56px"
-  button-light-hover:
-    backgroundColor: "{colors.lilac}"
+  button-primary-hover:
+    backgroundColor: "color-mix(in srgb, {colors.mint} 78%, {colors.paper})"
     textColor: "{colors.ink}"
   text-link:
     textColor: "{colors.ink}"
@@ -93,19 +83,15 @@ components:
     backgroundColor: "{colors.paper-deep}"
     rounded: "{rounded.md}"
     width: "min(100%, 560px)"
-  demo-label:
-    backgroundColor: "{colors.paper}"
+  demo-caption:
     textColor: "{colors.ink}"
     typography: "{typography.label}"
-    rounded: "{rounded.full}"
-    padding: "6px 10px"
-  demo-label-after:
-    backgroundColor: "{colors.mint}"
+    padding: "14px 2px 0"
+  process-feature:
+    backgroundColor: "color-mix(in srgb, {colors.mint} 23%, {colors.paper})"
     textColor: "{colors.ink}"
-  step-row:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    padding: "28px 0 30px"
+    rounded: "{rounded.md}"
+    padding: "34px"
   faq-item:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
@@ -126,7 +112,7 @@ Fraunces carries the expressive voice while Manrope keeps every explanation and 
 
 - Warm paper canvases with near-black ink and two optimistic accents.
 - Oversized, tightly set serif statements paired with compact sans-serif utility copy.
-- Crisp outlines, open corners, pill actions, and circular numbered markers.
+- Crisp outlines, open corners, pill actions, and a circular comparison handle.
 - Spacious mobile-first layouts that become structured editorial grids on larger screens.
 - Purposeful motion centered on transformation, with a complete reduced-motion fallback.
 
@@ -150,7 +136,11 @@ The palette behaves like a boutique window display: warm neutrals hold the produ
 
 ### Named Rules
 
-**The Two-Accent Rule.** Mint signals action and a ready outcome; Lilac signals editorial emphasis and transformation. Their contrast is intentional, so avoid introducing additional accent hues.
+**The Two-Accent Rule.** Mint signals action and a ready outcome; Lilac signals editorial emphasis and transformation. Only Mint behaves as an interactive accent. Their contrast is intentional, so avoid introducing additional accent hues.
+
+### Color Modes
+
+The page follows the system color preference. Light mode uses Warm Paper and Boutique Ink directly. Dark mode swaps those semantic surface and text roles while keeping Mint and Lilac recognisable. Every section remains inside the active page theme, so no individual section creates an isolated light or dark inversion.
 
 ## Typography
 
@@ -161,10 +151,10 @@ The palette behaves like a boutique window display: warm neutrals hold the produ
 
 ### Hierarchy
 
-- **Display** (700, fluid `3.2rem–5.9rem`, 0.96 line-height): Hero-scale promises; the desktop hero uses a narrower responsive override to preserve the side-by-side composition.
+- **Display** (700, fluid `3.05rem-5rem`, 0.98 line-height): Hero-scale promises; the desktop hero uses a narrower responsive override to preserve the side-by-side composition.
 - **Headline** (700, fluid section-scale type, 0.96 line-height): Major section statements, always balanced and tightly tracked.
 - **Title** (700, `1.15rem`, 1.3 line-height): Step and benefit headings.
-- **Body** (400, `1rem`, 1.6 line-height): Default reading copy; explanatory blocks stay intentionally narrow at roughly 31–43rem.
+- **Body** (400, `1rem`, 1.6 line-height): Default reading copy; explanatory blocks stay intentionally narrow at roughly 31-43rem.
 - **Label** (700, compact sans-serif): Buttons, chips, navigation actions, and short annotations.
 
 ### Named Rules
@@ -177,7 +167,7 @@ The system is mobile-first and single-column by default. A centered shell is cap
 
 At 700px, explanatory and FAQ groups become two-column grids, the three-step process becomes a ruled three-column row, and the footer distributes across three columns. At 960px, the header becomes sticky, the hero becomes a two-column editorial spread with a minimum 440px media column, and major grid gaps expand. At 420px and below, the header action shortens and the hero emphasis is allowed to wrap.
 
-The design relies on alignment, whitespace, and 1–1.5px rules rather than nested cards. Keep body copy to comfortable reading widths and let large headings occupy short, deliberate line lengths.
+The design relies on alignment, whitespace, and 1-1.5px rules rather than nested cards. Keep body copy to comfortable reading widths and let large headings occupy short, deliberate line lengths.
 
 ## Elevation & Depth
 
@@ -195,7 +185,7 @@ The visual system is flat by default. Layering comes from Paper, Lilac, Mint, pr
 
 ## Shapes
 
-The form language combines crisp editorial frames with friendly controls. Structural containers use straight 1–1.5px Ink rules; the transformation media frame uses a firm 2px outline and a restrained 16px radius. Buttons and small status labels are fully pill-shaped, while step numbers and the comparator handle are circular. Small brand tiles use an 8px radius.
+The form language combines crisp editorial frames with friendly controls. Structural containers use straight 1-1.5px Ink rules; the transformation media frame uses a firm 2px outline and a restrained 16px radius. Buttons are fully pill-shaped, while the comparator handle is circular. Small brand tiles use an 8px radius.
 
 The signature open-window motif is an incomplete, heavy corner rather than a closed box. On the transformation frame it appears as 86px Mint and Lilac corners with an 18px stroke and a softened 28px outer bend. Preserve its openness: it should frame content without enclosing it.
 
@@ -217,7 +207,7 @@ The signature open-window motif is an incomplete, heavy corner rather than a clo
 ### Cards / Containers
 
 - **Corner Style:** Most content groups are open and square; only the media frame and small brand tiles use rounded corners.
-- **Background:** Warm Paper is the default, Lilac can form a full-width editorial field, and Boutique Ink creates the inverse closing field.
+- **Background:** Warm Paper is the light canvas, Lilac can form a full-width editorial field, and Deep Paper marks the closing surface without inverting the page theme.
 - **Shadow Strategy:** Flat by default; refer to Elevation & Depth for the comparator-only exception.
 - **Border:** Thin Ink rules separate steps, benefits, FAQs, the process strip, and navigation.
 - **Internal Padding:** Repeated content rows use approximately 28px vertical padding, increasing modestly in desktop grids.
@@ -226,15 +216,15 @@ The signature open-window motif is an incomplete, heavy corner rather than a clo
 
 - **Style:** The implemented input is the invisible range control covering the transformation frame; the visible affordance is the divider and 46px circular handle.
 - **Focus:** The frame receives a 3px Ink outline with a 4px offset, and the handle gains the Mint focus halo.
-- **Behavior:** The comparison auto-loops across a nine-second cycle, pauses during pointer or keyboard interaction, and waits 4.5 seconds before resuming. Reduced-motion mode disables the loop and presents an even split.
+- **Behavior:** The comparison auto-loops across a nine-second CSS cycle, pauses during pointer or keyboard interaction, pauses offscreen and in hidden tabs, and waits 4.5 seconds before resuming. Reduced-motion mode disables the loop and presents an even split.
 
 ### Navigation
 
-The header is a single-row brand-and-action bar with a fine bottom rule. It is 72px high on mobile and 82px on desktop, becomes sticky at 960px, and uses a subtly translucent Warm Paper backdrop. The supplied logo artwork is authoritative; do not recreate it with live type. Below 420px, the WhatsApp label shortens without changing the action.
+The header is a single-row brand-and-action bar with a fine bottom rule. It is 72px high on mobile and 80px on desktop, becomes sticky at 960px, and uses a subtly translucent page backdrop with a solid reduced-transparency fallback. The supplied logo artwork is authoritative; do not recreate it with live type. Below 420px, the WhatsApp label shortens without changing the action.
 
 ### Transformation Comparator
 
-The signature component is a 4:5 garment frame with before and after imagery, opposing status chips, a movable vertical divider, and Mint/Lilac open corners. It should remain large enough to read as product proof, be directly draggable across nearly the entire width, expose useful accessible value text, and label conceptual imagery honestly.
+The signature component is a 4:5 garment frame with before and after imagery, a movable vertical divider, captions below the photograph, and Mint/Lilac open corners. It should remain large enough to read as product proof, be directly draggable across nearly the entire width, expose useful accessible value text, and label conceptual imagery honestly.
 
 ### FAQ Rows
 
