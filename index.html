@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Turn the dress photos you already have into polished, Instagram-worthy posts and one easy-to-share collection link with dekhlo.link."
+    />
+    <meta name="theme-color" content="#F7F3E8" />
+    <meta property="og:title" content="dekhlo.link — Your dress photo, ready for Instagram" />
+    <meta
+      property="og:description"
+      content="Beautiful boutique posts from the product photos you already have."
+    />
+    <link rel="icon" href="assets/brand/dekhlo-icon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>dekhlo.link — Dress photos, ready for Instagram</title>
+  </head>
+  <body>
+    <!--
+      THESIS: The transformation is the first viewport; the page refuses the generic app screenshot hero.
+      OWN-WORLD: Paper, Ink, Mint, and Lilac form an editorial boutique window with open corners and crisp outlines.
+      STORY: A boutique owner sees her everyday photo become a polished post, understands the three-step flow, and starts a WhatsApp chat.
+      FIRST VIEWPORT: Direct promise and WhatsApp action sit beside a large interactive before/after garment image; mobile stacks copy above the demo.
+      FORM: Direct brief, hero transformation loop; seed key direct-brief-hero-transform.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#top" aria-label="dekhlo.link home">
+          <img src="assets/brand/dekhlo-logo-primary.svg" alt="dekhlo" />
+        </a>
+        <a
+          class="header-chat"
+          href="https://wa.me/919413858007?text=Hi%20dekhlo!%20I%E2%80%99d%20like%20to%20see%20how%20my%20boutique%20photos%20could%20look."
+          target="_blank"
+          rel="noreferrer"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 11.6a8 8 0 0 1-11.8 7l-4.2 1.2 1.3-4a8 8 0 1 1 14.7-4.2Z" />
+            <path d="M8.3 8.1c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.3 0 .5-.2.7l-.5.6c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.5 2.3.2.1.4.1.6-.1l.7-.8c.2-.2.4-.3.7-.2l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.1-.5 1.5-.5.6-1.3.9-2.1.8-1.2-.2-2.7-.7-4.4-2.2-1.4-1.3-2.3-2.8-2.6-4-.2-.8 0-1.5.4-2.1Z" />
+          </svg>
+          <span class="header-chat-full">Chat on WhatsApp</span>
+          <span class="header-chat-short">WhatsApp</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="shell hero-layout">
+          <div class="hero-copy">
+            <h1>Your dress<br />photo, ready<br /><span>for Instagram.</span></h1>
+            <p>
+              Send the photos you already have. dekhlo turns them into polished posts and a clean
+              collection your boutique can share with confidence.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                href="https://wa.me/919413858007?text=Hi%20dekhlo!%20I%E2%80%99d%20like%20to%20see%20how%20my%20boutique%20photos%20could%20look."
+                target="_blank"
+                rel="noreferrer"
+              >
+                Send a photo on WhatsApp
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m8 4 8 8-8 8M4 12h12" />
+                </svg>
+              </a>
+              <a class="text-link" href="#how-it-works">See how it works</a>
+            </div>
+            <p class="hero-note">No professional shoot needed.</p>
+          </div>
+
+          <div class="demo-wrap">
+            <div class="corner corner-mint" aria-hidden="true"></div>
+            <div class="corner corner-lilac" aria-hidden="true"></div>
+            <figure class="transform-demo" data-transform-demo>
+              <div class="demo-labels" aria-hidden="true">
+                <span class="demo-label demo-label-before">Phone photo</span>
+                <span class="demo-label demo-label-after">Ready to post</span>
+              </div>
+              <img
+                class="demo-photo demo-photo-before"
+                src="assets/hero/blouse-before.jpg"
+                alt="An original product photo of a navy embroidered blouse displayed on a mannequin"
+                width="1238"
+                height="1070"
+              />
+              <div class="demo-after" aria-hidden="true">
+                <img
+                  class="demo-photo demo-photo-after"
+                  src="assets/hero/lehenga-after.jpg"
+                  alt=""
+                  width="1024"
+                  height="1536"
+                />
+              </div>
+              <div class="demo-divider" aria-hidden="true">
+                <span>
+                  <svg viewBox="0 0 24 24"><path d="m9 7-5 5 5 5M15 7l5 5-5 5" /></svg>
+                </span>
+              </div>
+              <input
+                class="demo-range"
+                type="range"
+                min="4"
+                max="96"
+                value="8"
+                aria-label="Compare the original phone photo with the polished post"
+                aria-describedby="concept-note"
+                aria-valuetext="8% of the ready-to-post result visible"
+              />
+            </figure>
+            <p class="concept-note" id="concept-note">Concept demo · Drag to compare</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="promise-strip" aria-label="The dekhlo process in one line">
+        <div class="shell promise-inner">
+          <span>Quick phone photo</span>
+          <svg viewBox="0 0 36 20" aria-hidden="true"><path d="M2 10h30M24 3l8 7-8 7" /></svg>
+          <span>Polished post</span>
+          <svg viewBox="0 0 36 20" aria-hidden="true"><path d="M2 10h30M24 3l8 7-8 7" /></svg>
+          <span>Ready to share</span>
+        </div>
+      </div>
+
+      <section class="intro-section" id="how-it-works">
+        <div class="shell intro-grid">
+          <h2>Beautiful posts, without a photoshoot.</h2>
+          <div class="intro-copy">
+            <p>
+              Your customers want to see what’s new. You shouldn’t need a studio setup every time a
+              fresh piece arrives.
+            </p>
+            <p>
+              dekhlo helps everyday product photos feel consistent, clear, and ready for your feed.
+            </p>
+          </div>
+        </div>
+
+        <div class="shell steps" aria-label="How dekhlo works">
+          <article class="step">
+            <span class="step-number" aria-hidden="true">1</span>
+            <div>
+              <h3>Send what you have</h3>
+              <p>Share your usual dress photos with us on WhatsApp.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-number" aria-hidden="true">2</span>
+            <div>
+              <h3>We shape the post</h3>
+              <p>Your product becomes a clean, boutique-ready visual.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-number" aria-hidden="true">3</span>
+            <div>
+              <h3>Share it with ease</h3>
+              <p>Post to Instagram and send your collection on WhatsApp.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="benefits-section">
+        <div class="shell benefits-grid">
+          <div class="benefits-heading">
+            <img src="assets/brand/dekhlo-icon-monochrome.svg" alt="" aria-hidden="true" />
+            <h2>Good photos.<br />Less jugaad.</h2>
+          </div>
+          <div class="benefit-list">
+            <div class="benefit-row">
+              <h3>Keep the dress in focus</h3>
+              <p>A cleaner presentation lets the colour, cut, and details do the talking.</p>
+            </div>
+            <div class="benefit-row">
+              <h3>Make your feed feel consistent</h3>
+              <p>Give new arrivals a recognisable look without rebuilding every post yourself.</p>
+            </div>
+            <div class="benefit-row">
+              <h3>Share one simple collection</h3>
+              <p>Move from scattered photos to a link that’s easy to send and browse.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <div class="shell faq-grid">
+          <h2>A few things you might ask.</h2>
+          <div class="faq-list">
+            <details>
+              <summary>Do I need professional photos?</summary>
+              <p>No. dekhlo is made for the everyday product photos you already take on your phone.</p>
+            </details>
+            <details>
+              <summary>Will the dress still look like the real product?</summary>
+              <p>
+                That’s the goal. In real customer work, fabric colour, shape, and details should stay
+                truthful. The example above is labelled as a concept.
+              </p>
+            </details>
+            <details>
+              <summary>Where can I share the result?</summary>
+              <p>Your finished visuals are shaped for Instagram and easy sharing on WhatsApp.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing-section" id="contact">
+        <div class="shell closing-inner">
+          <div class="closing-mark" aria-hidden="true">
+            <img src="assets/brand/dekhlo-icon.svg" alt="" />
+          </div>
+          <h2>Aapki collection.<br />Ab ready to share.</h2>
+          <p>Send us one product photo and tell us about your boutique.</p>
+          <a
+            class="button button-light"
+            href="https://wa.me/919413858007?text=Hi%20dekhlo!%20I%E2%80%99d%20like%20to%20see%20how%20my%20boutique%20photos%20could%20look."
+            target="_blank"
+            rel="noreferrer"
+          >
+            Start on WhatsApp
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m8 4 8 8-8 8M4 12h12" />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <img src="assets/brand/dekhlo-logo-domain.svg" alt="dekhlo.link" />
+        <p>Made for boutiques that sell through Instagram + WhatsApp.</p>
+        <p>© <span data-year></span> dekhlo.link</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
